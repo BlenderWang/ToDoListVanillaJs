@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do list with vanilla js</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        body {
+        font-family: "Roboto", sans-serif;
+        color: #242625;
+        background: #dedede;
+        margin: 0;
+        box-sizing: border-box;
+        }
+        h2,
+        p {
+        text-align: center;
+        }
+        .container {
+        background: whitesmoke;
+        margin: 0 auto;
+        padding: 2rem;
+        border-radius: 5px;
+        width: 32%;
+        }
+        form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+        #listItem {
+        width: 70%;
+        padding: 7px 15px;
+        border-radius: 3px;
+        border: 1px solid #aaa;
+        }
+        .btn {
+        display: inline-block;
+        color: whitesmoke;
+        background: #30a8a1;
+        text-align: center;
+        padding: 6px 15px;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+        }
+        .btn:hover {
+        cursor: pointer;
+        opacity: 0.8;
+        }
+        .btn:focus {
+        outline: none;
+        }
+        .btn-danger {
+        background: indianred;
+        float: right;
+        }
+        .message {
+        color: indianred;
+        font-style: italic;
+        display: none;
+        }
+        .message.open {
+        display: block;
+        }
+        .strike {
+        text-decoration: line-through;
+        }
+        ul {
+        list-style: none;
+        }
+        li {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 5px;
+        }
+        li:hover {
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Vanilla JS To Do List</h2>
+
+    <div class="container">
+    <form action="#" name="todolist">
+        <input type="text" name="listItem" id="listItem">
+        <button class="btn btn-success" id='addBtn'>Add</button>
+    </form>
+    <ul class="todoItems"></ul>
+    <p class="message">Cannot submit empty item</p>
+
+    <div id="btnGroup">
+        <button class="save btn">Save</button>
+        <button class="clear btn btn-danger">Clear</button>
+    </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
