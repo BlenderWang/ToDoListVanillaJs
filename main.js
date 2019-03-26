@@ -4,9 +4,16 @@ const ul = document.querySelector(".todoItems");
 const addBtn = document.querySelector("#addBtn");
 const message = document.querySelector(".message");
 const spans = document.getElementsByTagName("span");
+const saveBtn = document.querySelector('.save');
+const clearBtn = document.querySelector('.clear');
 
 // load todo list if found in local storage
-
+function loadToDo() {
+  if(localStorage.getItem('todoList')) {
+    ul.innerHTML = localStorage.getItem('todoList');
+    removeItem();
+  }
+}
 
 // to add items to the list
 function addItemFn(e) {
@@ -32,6 +39,17 @@ function addItemFn(e) {
   e.preventDefault();
 }
 
+// to cross the item off the list
+ul.addEventListener(
+  "click",
+  e => {
+    if (e.target.tagName === "LI") {
+      e.target.classList.toggle("strike");
+    }
+  },
+  false
+);
+
 function removeItem() {
   for(let span of spans) {
     span.addEventListener('click', () => {
@@ -42,3 +60,16 @@ function removeItem() {
 }
 
 addBtn.addEventListener("click", addItemFn);
+
+// save the list so user can visit it again
+saveBtn.addEventListener('click', () => {
+  localStorage.setItem('todoList', ul.innerHTML);
+});
+
+// clear the list from local storage
+clearBtn.addEventListener('click', () => {
+  ul.innerHTML = '';
+  localStorage.removeItem('todoList', ul.innerHTML);
+});
+
+loadToDo();
